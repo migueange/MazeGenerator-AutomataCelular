@@ -7,13 +7,15 @@ import processing.core.PFont;
 public class LaberintoAC extends PApplet{
 
 	/*Número de eoluciones del autómata*/
-	private int numEvoluciones=4000;
+	private int numEvoluciones=200;
 	/*Evolución actual*/
     private int evolucionActual=0;
 	/*Alto del tablero*/
-	private int altoTablero=500;
+	private int altoTablero=100;
 	/*Ancho del tablero*/
-	private int anchoTablero=500;
+	private int anchoTablero=100;
+    /*Resolución*/
+    private int resolucion=5;
 	/*El autómata celular*/
 	private AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero);
 
@@ -21,7 +23,7 @@ public class LaberintoAC extends PApplet{
 	/**/
 	@Override
 	public void settings(){
-		size((anchoTablero),(altoTablero));
+		size(anchoTablero*resolucion,(resolucion*altoTablero)+40);
 	}
 
 
@@ -37,7 +39,7 @@ public class LaberintoAC extends PApplet{
     public void draw(){
     	if(evolucionActual == numEvoluciones)  {
     		System.out.println("Se terminó la evolución");
-    		noLoop();
+    		noLoop();            
     	}
     	boolean [][] estadoActual = automata.getEstadoActual();    	
     	background(255);          
@@ -45,10 +47,12 @@ public class LaberintoAC extends PApplet{
     		for (int j=0; j<anchoTablero; j++) 
     			if(estadoActual[i][j]){
     				fill(0);
-    				rect(j*2,i*2,2,2);
-    			} 			    	
+    				rect(j*resolucion,i*resolucion,resolucion,resolucion);
+    			}
+        text("Evolución: " + evolucionActual,((anchoTablero*resolucion)/2)-45,(altoTablero*resolucion)+23);
     	automata.evoluciona();
     	evolucionActual++;
+        delay(50);
     }
 
 
