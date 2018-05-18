@@ -41,7 +41,8 @@ public class AutomataCelular {
 	 * 2.Una célula sobrevive de una generación a otra si tiene 
 	 * entre 1 y 5 vecinos vivos.<br/>
 	 * 3.En otro caso, muere.
-	 * @param ruleString El tipo de comportamiento del autómata en notación B/S. Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
+	 * @param ruleString El tipo de comportamiento del autómata en notación B/S (Birth/Survive).
+	 *  Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
 	 */
 	public void evoluciona(String ruleString){		
 		/* Tablero que contendrá el autómata evolucionado*/
@@ -92,14 +93,14 @@ public class AutomataCelular {
 		int vecinosVivos = cuentaVecinosVivos(i,j);
 		/*Se pueden implementar más ruleStrings*/
 		switch(ruleString){	
-			/*Autómata Maze*/		
+			/*Autómata Mazectric*/		
 			case "B3/S1234":
 				if(vecinosVivos > 0 && vecinosVivos < 5 && automata[i][j])
 					return true;				
 				if(vecinosVivos == 3 && !automata[i][j])
 					return true;
 				return false;				
-			/*Autómata Mazectric*/
+			/*Autómata Maze*/
 			case "B3/S12345":
 				if(vecinosVivos > 0 && vecinosVivos < 6 && automata[i][j])
 					return true;
@@ -111,6 +112,11 @@ public class AutomataCelular {
 				if((vecinosVivos == 3 || vecinosVivos == 2) && automata[i][j])
 					return true;
 				if(vecinosVivos == 3 && !automata[i][j])
+					return true;
+				return false;
+			/*Autómata Seed*/
+			case  "B2/S":
+				if(vecinosVivos == 2)
 					return true;
 				return false;
 			default:
