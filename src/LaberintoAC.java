@@ -17,7 +17,7 @@ public class LaberintoAC extends PApplet{
     /*Resolución*/
     private int resolucion=5;
 	/*El autómata celular*/
-	private AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero);
+	private AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
 
 
 	/**/
@@ -50,7 +50,7 @@ public class LaberintoAC extends PApplet{
     				rect(j*resolucion,i*resolucion,resolucion,resolucion);
     			}
         text("Evolución: " + evolucionActual,((anchoTablero*resolucion)/2)-45,(altoTablero*resolucion)+23);
-    	automata.evoluciona();
+    	automata.evoluciona("B3/S1234");
     	evolucionActual++;
         delay(50);
     }
