@@ -43,7 +43,7 @@ public class AutomataCelular {
 	 * 3.En otro caso, muere.
 	 * @param ruleString El tipo de comportamiento del autómata en notación B/S. Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
 	 */
-	public void evoluciona(String ruleString){
+	public void evoluciona(String ruleString){		
 		/* Tablero que contendrá el autómata evolucionado*/
 		boolean [][] evolucion = new boolean[n][m];
 		for (int i=0;i<n ;i++ ) 

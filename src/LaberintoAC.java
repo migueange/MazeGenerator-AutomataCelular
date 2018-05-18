@@ -16,6 +16,8 @@ public class LaberintoAC extends PApplet{
 	private int anchoTablero=100;
     /*Resolución*/
     private int resolucion=5;
+    /*RuleString*/
+    private String ruleString = "B3/S1234";
 	/*El autómata celular*/
 	private AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
 
@@ -32,7 +34,8 @@ public class LaberintoAC extends PApplet{
 	 */
     @Override
     public void setup(){
-    	background(255);          
+    	background(255); 
+    	System.out.println("Usando ruleString: " + ruleString);         
     }
 
      @Override
@@ -50,7 +53,7 @@ public class LaberintoAC extends PApplet{
     				rect(j*resolucion,i*resolucion,resolucion,resolucion);
     			}
         text("Evolución: " + evolucionActual,((anchoTablero*resolucion)/2)-45,(altoTablero*resolucion)+23);
-    	automata.evoluciona("B3/S1234");
+    	automata.evoluciona(ruleString);
     	evolucionActual++;
         delay(50);
     }
