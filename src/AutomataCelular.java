@@ -34,6 +34,15 @@ public class AutomataCelular {
 				automata[i][j] = r.nextDouble() < p;							
 	}
 
+	/**
+	 * Crea un autómata de nxm dado un estado inicial.
+	 * @param estadoInicial El estado inicial del autómata.
+	 */
+	public AutomataCelular(boolean[][] estadoInicial){
+		n = estadoInicial.length;
+		m = estadoInicial[0].length;
+		automata = estadoInicial;
+	}
 
 	/**
 	 * Evoluciona el autómata dadas las siguientes reglas: <br/>
