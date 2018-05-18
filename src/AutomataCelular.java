@@ -42,7 +42,7 @@ public class AutomataCelular {
 	 * entre 1 y 5 vecinos vivos.<br/>
 	 * 3.En otro caso, muere.
 	 * @param ruleString El tipo de comportamiento del autómata en notación B/S (Birth/Survive).
-	 *  Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
+	 *  Para más información, visite: <a href="http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no">BS notation</a>
 	 */
 	public void evoluciona(String ruleString){		
 		/* Tablero que contendrá el autómata evolucionado*/

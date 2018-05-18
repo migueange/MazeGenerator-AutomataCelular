@@ -2,27 +2,34 @@ import processing.core.PApplet;
 import processing.core.PFont;
 
 /**
- * @author Miguel Mendoza
+ * Interfaz para dibujar autómatas celulares y su evolución.
+ * Nos centramos en los autómatas que generan laberintos.
+ * @version 1.0
+ * @author Miguel
+ * @author Hugo
+ * @author Victor
  */
 public class LaberintoAC extends PApplet{
 
 	/*Número de eoluciones del autómata*/
-	private int numEvoluciones=200;
+	private static final int numEvoluciones=200;
 	/*Evolución actual*/
     private int evolucionActual=0;
 	/*Alto del tablero*/
-	private int altoTablero=50;
+	private static final int altoTablero=70;
 	/*Ancho del tablero*/
-	private int anchoTablero=50;
+	private static final int anchoTablero=70;
     /*Resolución*/
-    private int resolucion=10;
+    private static final int resolucion=6;
     /*RuleString*/
-    private String ruleString = "B3/S1234";
+    private static final String ruleString = "B3/S1234";
 	/*El autómata celular*/
-	private AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
+	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
 
 
-	/**/
+	/**
+	 * Propiedades de la interfaz.	 
+	 */
 	@Override
 	public void settings(){
 		size(anchoTablero*resolucion,(resolucion*altoTablero)+40);
@@ -38,7 +45,10 @@ public class LaberintoAC extends PApplet{
     	System.out.println("Usando ruleString: " + ruleString);         
     }
 
-     @Override
+    /**
+     * Dibuja cada evolución del autómata.
+     */
+    @Override
     public void draw(){
     	if(evolucionActual == numEvoluciones)  {
     		System.out.println("Se terminó la evolución");
@@ -58,7 +68,9 @@ public class LaberintoAC extends PApplet{
         delay(50);
     }
 
-
+    /**
+     * Main
+     */
 	public static void main(String[] args) {
 		PApplet.main(new String[] { "LaberintoAC" });
 
