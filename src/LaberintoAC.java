@@ -16,11 +16,11 @@ public class LaberintoAC extends PApplet{
 	/*Evolución actual*/
 	private int evolucionActual=0;
 	/*Alto del tablero*/
-	private static final int altoTablero=50;
+	private static final int altoTablero=100;
 	/*Ancho del tablero*/
-	private static final int anchoTablero=50;
+	private static final int anchoTablero=100;
 	/*Resolución*/
-	private static final int resolucion=10;
+	private static final int resolucion=7;
 	/*RuleString*/
 	private static final String ruleString = "B2/S123";
 	/*El autómata celular*/

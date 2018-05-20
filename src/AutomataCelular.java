@@ -45,7 +45,7 @@ public class AutomataCelular {
 	}
 
 	/**
-	 * Evoluciona el autómata dadas las reglas del ruleString dado.
+	 * Evoluciona el autómata una generación dadas las reglas del ruleString.
 	 * @param ruleString El tipo de comportamiento del autómata en notación B/S (Birth/Survive).
 	 *  Para más información, visite: <a href="http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no">BS notation</a>
 	 */
