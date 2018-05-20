@@ -45,11 +45,7 @@ public class AutomataCelular {
 	}
 
 	/**
-	 * Evoluciona el autómata dadas las siguientes reglas: <br/>
-	 * 1.Una célula nace si tiene exactamente 3 vecinos vivos. <br/>
-	 * 2.Una célula sobrevive de una generación a otra si tiene 
-	 * entre 1 y 5 vecinos vivos.<br/>
-	 * 3.En otro caso, muere.
+	 * Evoluciona el autómata dadas las reglas del ruleString dado.
 	 * @param ruleString El tipo de comportamiento del autómata en notación B/S (Birth/Survive).
 	 *  Para más información, visite: <a href="http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no">BS notation</a>
 	 */
@@ -82,16 +78,11 @@ public class AutomataCelular {
 				/*Si está viva, aumenta el contador*/
 				vecinosVivos+= (automata[i][j])?1:0;
 			}
-    	return vecinosVivos;
+		return vecinosVivos;
 	}
 
 	/**
-	* Decide si una célula vive o muere.
-	 * Reglas del autómata:<br/>
-	 * 1.Una célula nace si tiene exactamente 3 vecinos vivos.<br/>
-	 * 2.Una célula sobrevive de una generación a otra si tiene 
-	 * entre 1 y 5 vecinos vivos.<br/>
-	 * 3.En otro caso, muere.
+	* Decide si una célula vive o muere dadas las reglas especificadas por el ruleString.
 	 * @param i La fila de la célula.
 	 * @param j La columna de la célula.
 	 * @param ruleString El tipo de comportamiento del autómata en notación B/S. Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
@@ -128,6 +119,13 @@ public class AutomataCelular {
 				if(vecinosVivos == 2)
 					return true;
 				return false;
+			/*B2/S123*/
+			case "B2/S123":
+				if(vecinosVivos == 2 && !automata[i][j])
+					return true;
+				if(vecinosVivos > 0 && vecinosVivos < 4	 && automata[i][j])
+					return true;
+				return false;
 			default:
 				throw new UnsupportedOperationException(ruleString + " no es una ruleString válida");
 		}		
@@ -158,7 +156,4 @@ public class AutomataCelular {
 		}
 		return automataString;
 	}
-
-
-
 }

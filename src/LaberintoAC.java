@@ -14,18 +14,17 @@ public class LaberintoAC extends PApplet{
 	/*Número de eoluciones del autómata*/
 	private static final int numEvoluciones=200;
 	/*Evolución actual*/
-    private int evolucionActual=0;
+	private int evolucionActual=0;
 	/*Alto del tablero*/
-	private static final int altoTablero=70;
+	private static final int altoTablero=50;
 	/*Ancho del tablero*/
-	private static final int anchoTablero=70;
-    /*Resolución*/
-    private static final int resolucion=6;
-    /*RuleString*/
-    private static final String ruleString = "B3/S1234";
+	private static final int anchoTablero=50;
+	/*Resolución*/
+	private static final int resolucion=10;
+	/*RuleString*/
+	private static final String ruleString = "B2/S123";
 	/*El autómata celular*/
 	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
-
 
 	/**
 	 * Propiedades de la interfaz.	 
@@ -34,7 +33,6 @@ public class LaberintoAC extends PApplet{
 	public void settings(){
 		size(anchoTablero*resolucion,(resolucion*altoTablero)+40);
 	}
-
 
 	/** 
 	 * Configuracion inicial de la interfaz.
@@ -73,7 +71,6 @@ public class LaberintoAC extends PApplet{
      */
 	public static void main(String[] args) {
 		PApplet.main(new String[] { "LaberintoAC" });
-
 	}
 
 }
