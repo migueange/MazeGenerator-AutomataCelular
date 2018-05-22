@@ -20,11 +20,13 @@ public class LaberintoAC extends PApplet{
 	/*Ancho del tablero*/
 	private static final int anchoTablero=100;
 	/*Resolución*/
-	private static final int resolucion=7;
+	private static final int resolucion=5;
 	/*RuleString*/
 	private static final String ruleString = "B2/S123";
 	/*El autómata celular*/
 	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
+
+	private static final boolean [][] solucion = automata.generaSolucionLaberinto();
 
 	/**
 	 * Propiedades de la interfaz.	 
@@ -39,7 +41,8 @@ public class LaberintoAC extends PApplet{
 	 */
     @Override
     public void setup(){
-    	background(255); 
+    	background(0); 
+    	noStroke();
     	System.out.println("Usando ruleString: " + ruleString);         
     }
 
@@ -48,22 +51,34 @@ public class LaberintoAC extends PApplet{
      */
     @Override
     public void draw(){
-    	if(evolucionActual == numEvoluciones)  {
+    	if(evolucionActual == numEvoluciones+1)  {
     		System.out.println("Se terminó la evolución");
-    		noLoop();            
-    	}
+    		delay(5000);
+    		if(solucion != null)
+    			for (int i=0; i<altoTablero; i++)
+    				for (int j=0; j<anchoTablero; j++)     			
+    					if(solucion[i][j]){
+    						fill(0,255,0);    				
+    						rect(j*resolucion,i*resolucion,resolucion,resolucion);
+	  					}   				            
+	  		noLoop();
+    	}else{
     	boolean [][] estadoActual = automata.getEstadoActual();    	
-    	background(255);          
+    	background(0);          
     	for (int i=0; i<altoTablero; i++)
-    		for (int j=0; j<anchoTablero; j++) 
-    			if(estadoActual[i][j]){
-    				fill(0);
-    				rect(j*resolucion,i*resolucion,resolucion,resolucion);
-    			}
+    		for (int j=0; j<anchoTablero; j++)     			
+   				if(estadoActual[i][j]){
+   					fill(255);    				
+   					rect(j*resolucion,i*resolucion,resolucion,resolucion);
+   				}
         text("Evolución: " + evolucionActual,((anchoTablero*resolucion)/2)-45,(altoTablero*resolucion)+23);
-    	automata.evoluciona(ruleString);
+        if(solucion != null)
+    		automata.evoluciona(solucion,ruleString);
+    	else 
+    		automata.evoluciona(ruleString);
     	evolucionActual++;
         delay(50);
+    	}
     }
 
     /**
