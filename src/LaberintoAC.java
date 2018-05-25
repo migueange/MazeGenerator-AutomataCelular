@@ -12,17 +12,17 @@ import processing.core.PFont;
 public class LaberintoAC extends PApplet{
 
 	/*Número de eoluciones del autómata*/
-	private static final int numEvoluciones=200;
+	private static final int numEvoluciones=500;
 	/*Evolución actual*/
 	private int evolucionActual=0;
 	/*Alto del tablero*/
-	private static final int altoTablero=100;
+	private static final int altoTablero=200;
 	/*Ancho del tablero*/
-	private static final int anchoTablero=100;
+	private static final int anchoTablero=200;
 	/*Resolución*/
-	private static final int resolucion=5;
+	private static final int resolucion=3;
 	/*RuleString*/
-	private static final String ruleString = "B2/S123";
+	private static final String ruleString = "B3/S12345";
 	/*El autómata celular*/
 	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
 
