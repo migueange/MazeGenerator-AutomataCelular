@@ -12,17 +12,17 @@ import processing.core.PFont;
 public class LaberintoAC extends PApplet{
 
 	/*Número de eoluciones del autómata*/
-	private static final int numEvoluciones=500;
+	private static final int numEvoluciones=200;
 	/*Evolución actual*/
 	private int evolucionActual=0;
 	/*Alto del tablero*/
-	private static final int altoTablero=400;
+	private static final int altoTablero=70;
 	/*Ancho del tablero*/
-	private static final int anchoTablero=400;
+	private static final int anchoTablero=70;
     /*Resolución*/
-    private static final int resolucion=2;
+    private static final int resolucion=10;
     /*RuleString*/
-    private static final String ruleString = "B3/S1234";
+    private static final String ruleString = "B3/S12345";
 	/*El autómata celular*/
 	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
 
@@ -79,6 +79,16 @@ public class LaberintoAC extends PApplet{
     	evolucionActual++;
         delay(50);
     	}
+    	//noLoop();
+    }
+
+    /** Indica que se desea expandir el siguiente 
+     * nivel al hacer click, se deben agregar loop() en este método
+     * y noLoop() en draw(). 
+     */
+    @Override
+    public void mouseClicked() {
+        //loop();
     }
 
     /**

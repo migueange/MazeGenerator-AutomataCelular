@@ -138,7 +138,7 @@ public class AutomataCelular {
 	* Decide si una célula vive o muere dadas las reglas especificadas por el ruleString.
 	 * @param i La fila de la célula.
 	 * @param j La columna de la célula.
-	 * @param ruleString El tipo de comportamiento del autómata en notación B/S. Para más información, visite: http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no
+	 * @param ruleString El tipo de comportamiento del autómata en notación B/S. Para más información, visite: <a href="http://www.conwaylife.com/w/index.php?title=Rulestring&redirect=no">BS notation</a>
 	 * @return True si vive, false si muere.
 	 * @throws UnsupportedOperationException si no está implementada la ruleString dada.
 	 */
