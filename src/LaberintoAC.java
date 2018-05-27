@@ -25,7 +25,7 @@ public class LaberintoAC extends PApplet{
     private static final String ruleString = "B3/S12345";
 	/*El autómata celular*/
 	private static final AutomataCelular automata = new AutomataCelular(altoTablero, anchoTablero, 0.25);
-
+    /*Una solución del laberinto*/
 	private static final boolean [][] solucion = automata.generaSolucionLaberinto();
 
 	/**
